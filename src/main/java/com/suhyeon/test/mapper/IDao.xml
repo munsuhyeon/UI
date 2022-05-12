@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+   <mapper namespace="com.suhyeon.test.dao.IDao">
+   
+   	<select id="listDao" resultType="com.suhyeon.test.dto.BoardDto">
+   		SELECT * FROM club_board ORDER BY mid DESC
+   	</select>
+   	
+   	<insert id="writeDao">
+   		INSERT INTO club_board(mid,mname,mphone,maddress,mdate) VALUES 
+   		(club_seq.nextvalm,#{param1},#{param2},#{param3},#{param4})
+   		
+   	</insert>
+   	
+   	<select id="viewDao">
+   		SELECT * FROM club_board WHERE mid = #{param1}
+   	</select>
+   	
+   	<delete id="deleteDao">
+   		DELETE FROM club_board WHERE mid = #{param1}
+   	</delete>
+   	
+   	<update id="modifyDao">
+   		UPDATE club_board SET mname = #{param1}, mphone = #{param2}, maddress = #{param3}, mid = #{param4}
+   	</update>
+   
+   </mapper>
